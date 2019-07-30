@@ -1,26 +1,26 @@
 <template>
   <div id="app">
     <div class="container">
-      <display-area id="display-area"></display-area>
-      <input-button id="button-C" :role="'C'"></input-button>
-      <input-button id="button-plusminus" :role="'±'"></input-button>
-      <input-button id="button-per" :role="'%'"></input-button>
-      <input-button id="button-9" :role="'9'"></input-button>
-      <input-button id="button-8" :role="'8'"></input-button>
-      <input-button id="button-7" :role="'7'"></input-button>
-      <input-button id="button-6" :role="'6'"></input-button>
-      <input-button id="button-5" :role="'5'"></input-button>
-      <input-button id="button-4" :role="'4'"></input-button>
-      <input-button id="button-3" :role="'3'"></input-button>
-      <input-button id="button-2" :role="'2'"></input-button>
-      <input-button id="button-1" :role="'1'"></input-button>
-      <input-button id="button-0" :role="'0'"></input-button>
-      <input-button id="button-dot" :role="'.'"></input-button>
-      <input-button id="button-div" :role="'÷'"></input-button>
-      <input-button id="button-mul" :role="'×'"></input-button>
-      <input-button id="button-plus" :role="'ー'"></input-button>
-      <input-button id="button-minus" :role="'＋'"></input-button>
-      <input-button id="button-eq" :role="'＝'"></input-button>
+      <display-area id="display-area" :line="buf"></display-area>
+      <input-button @keyPress="onPress" id="button-C" :role="'C'"></input-button>
+      <input-button @keyPress="onPress" id="button-plusminus" :role="'±'"></input-button>
+      <input-button @keyPress="onPress" id="button-per" :role="'%'"></input-button>
+      <input-button @keyPress="onPress" id="button-9" :role="'9'"></input-button>
+      <input-button @keyPress="onPress" id="button-8" :role="'8'"></input-button>
+      <input-button @keyPress="onPress" id="button-7" :role="'7'"></input-button>
+      <input-button @keyPress="onPress" id="button-6" :role="'6'"></input-button>
+      <input-button @keyPress="onPress" id="button-5" :role="'5'"></input-button>
+      <input-button @keyPress="onPress" id="button-4" :role="'4'"></input-button>
+      <input-button @keyPress="onPress" id="button-3" :role="'3'"></input-button>
+      <input-button @keyPress="onPress" id="button-2" :role="'2'"></input-button>
+      <input-button @keyPress="onPress" id="button-1" :role="'1'"></input-button>
+      <input-button @keyPress="onPress" id="button-0" :role="'0'"></input-button>
+      <input-button @keyPress="onPress" id="button-dot" :role="'.'"></input-button>
+      <input-button @keyPress="onPress" id="button-div" :role="'÷'"></input-button>
+      <input-button @keyPress="onPress" id="button-mul" :role="'×'"></input-button>
+      <input-button @keyPress="onPress" id="button-plus" :role="'ー'"></input-button>
+      <input-button @keyPress="onPress" id="button-minus" :role="'＋'"></input-button>
+      <input-button @keyPress="onPress" id="button-eq" :role="'＝'"></input-button>
     </div>
   </div>
 </template>
@@ -34,6 +34,16 @@ export default {
   components: {
     InputButton,
     DisplayArea
+  },
+  data: function() {
+    return {
+      buf: ""
+    };
+  },
+  methods: {
+    onPress(key) {
+      this.buf = `clicked:${key}`;
+    }
   }
 };
 </script>

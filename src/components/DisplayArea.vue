@@ -1,5 +1,7 @@
 <template>
-  <div class="display-area"></div>
+  <div class="display-area">
+    <div class="text">{{ line }}</div>
+  </div>
 </template>
 
 <script>
@@ -7,13 +9,7 @@
 export default {
   name: "Inputbutton",
   props: {
-    role: String
-  },
-  methods: {
-    clickAction() {
-      // eslint-disable-next-line no-console
-      console.log(`clicked ${this.role}`);
-    }
+    line: String
   }
 };
 </script>
@@ -22,5 +18,15 @@ export default {
 <style lang="scss" scoped>
 .display-area {
   background-color: #2e3440;
+  display: flex;
+  align-items: center;
+}
+.text {
+  width: 100%;
+  padding: 0 20px;
+  color: #eceff4;
+  font-size: 35px;
+  font-weight: 800;
+  text-align: right;
 }
 </style>

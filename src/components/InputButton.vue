@@ -1,5 +1,5 @@
 <template>
-  <button class="input-button" @click="clickAction">{{ role }}</button>
+  <button class="input-button" @click="clickAction">{{role}}</button>
 </template>
 
 <script>
@@ -12,8 +12,6 @@ export default {
   methods: {
     clickAction() {
       this.$emit("keyPress", `${this.role}`);
-      // eslint-disable-next-line no-console
-      console.log(`clicked ${this.role}`);
     }
   }
 };
